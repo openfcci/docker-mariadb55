@@ -4,5 +4,7 @@ MAINTAINER Dustin Rue <dustin.rue@forumcomm.com>
 RUN apt-get update && apt-get install procps -y
 ADD backup.sh /usr/local/sbin/backup.sh
 ADD restore.sh /usr/local/sbin/restore.sh
-RUN chmod +x /usr/local/sbin/*.sh
+ADD showmake.sh /usr/local/sbin/showmake.sh
+RUN chmod +x /usr/local/sbin/*.sh && ln -s /usr/local/sbin/showmake.sh /usr/local/sbin/showmake
+ADD Makefile /root/Makefile
 RUN mkdir /mnt/backup
